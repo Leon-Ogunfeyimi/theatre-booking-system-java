@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ca1bookingfx.HelloController">
+    <children>
+        <Label alignment="TOP_CENTER" prefHeight="29.0" prefWidth="702.0" style="-fx-font-size: 24px; -fx-background-color: #D16D6D; -fx-font-weight: bold;" text="Theatre Booking System" textAlignment="RIGHT" />
+        <HBox alignment="CENTER" spacing="10.0" style="-fx-padding: 10px; -fx-background-color: #D16D6D;">
+            <Button onAction="#saveAll" style="-fx-background-color: #D3D3D3;" text="Save All" textAlignment="CENTER" />
+            <Button onAction="#loadAll" style="-fx-background-color: #D3D3D3;" text="Load All" />
+        </HBox>
+        <TabPane fx:id="tabPane" prefHeight="409.0" prefWidth="640.0" style="-fx-background-color: #FFA07A;" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab style="background-color: #90EE90;" text="Show">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FF6666;">
+                            <children>
+                                <TextField fx:id="showName" layoutX="252.0" layoutY="22.0" promptText="Name of Show">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font></TextField>
+                                <Spinner fx:id="showDuration" layoutX="40.0" layoutY="71.0" style="-fx-background-color: #FFB6C1;" />
+                                <DatePicker fx:id="startDate" layoutX="445.0" layoutY="145.0" promptText="Start Date" style="-fx-background-color: #FFB6C1;" />
+                                <DatePicker fx:id="endDate" layoutX="445.0" layoutY="184.0" promptText="End Date" />
+                                <Spinner fx:id="balconyPrice" layoutX="40.0" layoutY="249.0" />
+                                <Spinner fx:id="stallPrice" layoutX="40.0" layoutY="132.0" />
+                                <Spinner fx:id="circlePrice" layoutX="40.0" layoutY="192.0" />
+                                <ListView fx:id="showsList" layoutX="217.0" layoutY="57.0" prefHeight="214.0" prefWidth="218.0" />
+                                <Button layoutX="463.0" layoutY="292.0" mnemonicParsing="false" onAction="#onAddShowButtonClick" style="-fx-background-color: #90EE90;" text="add" />
+                                <Button layoutX="512.0" layoutY="292.0" mnemonicParsing="false" onAction="#onDeleteShowButtonClick" style="-fx-background-color: #90EE90;" text="delete" />
+                                <Button layoutX="274.0" layoutY="284.0" mnemonicParsing="false" onAction="#onResetFacilityButtonClick" style="-fx-background-color: #FFFFE0;" text="Refresh System" />
+                                <Text layoutX="58.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Show Duration Mins" />
+                                <Text layoutX="76.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stall Price" />
+                                <Text layoutX="76.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Circle Price" />
+                                <Text layoutX="76.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balcony Price" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Performance">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FF6666;">
+                            <children>
+                                <ComboBox fx:id="performancesTime" layoutX="14.0" layoutY="25.0" prefWidth="150.0" promptText="Time" style="-fx-background-color: #F2F2F2;" />
+                                <ComboBox fx:id="performancesName" layoutX="467.0" layoutY="25.0" prefWidth="150.0" promptText="Name" style="-fx-background-color: #F2F2F2;" />
+                                <ListView fx:id="performancesList" layoutX="174.0" layoutY="54.0" prefHeight="261.0" prefWidth="278.0" />
+                                <Button layoutX="14.0" layoutY="289.0" mnemonicParsing="false" onAction="#onAddPerformanceButtonClick" style="-fx-background-color: #90EE90;" text="add" />
+                                <DatePicker fx:id="performanceDate" layoutX="220.0" layoutY="25.0" promptText="Performance Date" />
+                                <Button layoutX="73.0" layoutY="289.0" mnemonicParsing="false" onAction="#onDeletePerformanceButtonClick" style="-fx-background-color: #90EE90;" text="delete" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Customer">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FF6666;">
+                            <children>
+                                <TextField fx:id="customerName" layoutX="57.0" layoutY="28.0" promptText="Customer Name" style="-fx-background-color: #F2F2F2;" />
+                                <TextField fx:id="phoneNumber" layoutX="401.0" layoutY="28.0" promptText="Phone" style="-fx-background-color: #F2F2F2;" />
+                                <TextField fx:id="email" layoutX="230.0" layoutY="28.0" promptText="Email" style="-fx-background-color: #F2F2F2;" />
+                                <ListView fx:id="customersList" layoutX="187.0" layoutY="73.0" prefHeight="222.0" prefWidth="266.0" />
+                                <Button layoutX="272.0" layoutY="301.0" mnemonicParsing="false" onAction="#onAddCustomerButtonClick" style="-fx-background-color: #90EE90;" text="add" />
+                                <Button layoutX="327.0" layoutY="301.0" mnemonicParsing="false" onAction="#onDeleteCustomerButtonClick" style="-fx-background-color: #90EE90;" text="delete" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Booking">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FF6666;">
+                            <children>
+                                <ComboBox fx:id="performanceInfo" layoutX="406.0" layoutY="181.0" prefWidth="150.0" promptText="performances" />
+                                <ComboBox fx:id="customersInfo" layoutX="406.0" layoutY="14.0" prefWidth="150.0" promptText="customers" />
+                                <ListView fx:id="bookingsList" layoutX="336.0" layoutY="47.0" prefHeight="114.0" prefWidth="289.0" />
+                                <Button layoutX="75.0" layoutY="300.0" mnemonicParsing="false" onAction="#onAddBookingButtonClick" style="-fx-background-color: #90EE90;" text="add" />
+                                <TextField fx:id="seatsSelected" layoutX="11.0" layoutY="255.0" prefHeight="35.0" prefWidth="167.0" promptText="Seat Choice" style="-fx-background-color: #F2F2F2;" />
+                                <ListView fx:id="availableSeatList" layoutX="335.0" layoutY="220.0" prefHeight="117.0" prefWidth="291.0" />
+                                <Button layoutX="131.0" layoutY="300.0" mnemonicParsing="false" onAction="#onDeleteBookingButtonClick" style="-fx-background-color: #90EE90;" text="delete" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Seating Layout">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #A9A9A9;">
+                            <children>
+                                <GridPane fx:id="seatingGrid" prefHeight="339.0" prefWidth="647.0" style="-fx-background-color: #A9A9A9;">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</VBox>
